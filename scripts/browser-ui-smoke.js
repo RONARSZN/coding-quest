@@ -1,0 +1,31 @@
+async (page) => {
+  const original=await page.evaluate(()=>localStorage.getItem('coding-quest:progress'));
+  await page.getByRole('button',{name:'02 Quests',exact:true}).click();
+  const row=page.locator('.quest-row').filter({has:page.getByRole('heading',{name:'Give a product some structure',exact:true})});
+  await row.getByRole('button',{name:'Start ↗',exact:true}).focus();await page.keyboard.press('Enter');
+  const html=await page.getByRole('textbox',{name:'HTML code',exact:true}).inputValue();
+  await page.getByRole('textbox',{name:'HTML code',exact:true}).fill(html.replace('Demo Board','Demo Vest').replace('A fictional practice product.','A fictional vest for practice.'));
+  await page.getByRole('textbox',{name:'If you change words inside <p>'}).fill('A paragraph changes.');
+  await page.getByRole('button',{name:'JavaScript',exact:true}).click();
+  await page.getByRole('textbox',{name:'JavaScript code',exact:true}).fill('while (true) {}');
+  await page.getByRole('button',{name:'Run & check ▶',exact:true}).focus();await page.keyboard.press('Enter');
+  await page.getByRole('alert').getByText('Execution stopped',{exact:false}).waitFor();
+  if((await page.getByRole('textbox',{name:'JavaScript code',exact:true}).inputValue())!=='while (true) {}')throw Error('Runaway erased draft');
+  await page.getByRole('textbox',{name:'JavaScript code',exact:true}).fill('');
+  await page.getByRole('button',{name:'Run & check ▶',exact:true}).click();
+  await page.getByText('PASS · Name is Demo Vest',{exact:true}).waitFor();
+  await page.getByText('PASS · Description is the requested paragraph',{exact:true}).waitFor();
+  await page.getByRole('textbox',{name:'What did you change? Which line controlled the result?'}).fill('I changed the h2 name and p description. Both HTML text changes appear in the preview.');
+  await page.getByRole('button',{name:'Prepare a coaching handoff ↗',exact:true}).click();
+  await page.getByRole('textbox',{name:'Your specific question',exact:true}).fill('How do id and class differ?');
+  const handoff=await page.getByRole('textbox',{name:'Text to copy',exact:true}).inputValue();
+  if(!handoff.includes('How do id and class differ?')||!handoff.includes('Demo Vest')||!handoff.includes('PASS Name is Demo Vest'))throw Error('Handoff missing current question/code/checks');
+  await page.getByRole('button',{name:'Copy handoff',exact:true}).click();
+  await page.getByRole('dialog').getByRole('status').getByText('Copied.',{exact:false}).waitFor();
+  await page.keyboard.press('Escape');
+  await page.getByRole('button',{name:'Complete quest ✓',exact:true}).focus();await page.keyboard.press('Enter');
+  await page.getByText('Quest completed. Your practice, XP and review dates are recorded.',{exact:true}).waitFor();
+  await page.screenshot({path:'output/playwright/workspace-desktop.png',fullPage:true});
+  await page.evaluate(raw=>localStorage.setItem('coding-quest:progress',raw),original);await page.reload();
+  return {keyboardStartAndCompletion:'pass',lazySandboxRun:'pass',runawayUIDraftRecovery:'pass',coachingPreviewAndCopy:'pass'};
+}

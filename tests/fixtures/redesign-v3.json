@@ -1,0 +1,2341 @@
+{
+  "source": "Copied pre-redesign source at output/redesign-baseline-2026-10-21, generated 2026-10-21 with its own domain/curriculum modules. Synthetic QA learner only.",
+  "originalPack": {
+    "id": "season-01-foundations",
+    "version": 3
+  },
+  "contracts": [
+    {
+      "id": "q01",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "heading",
+          "kind": "text",
+          "selector": "#name",
+          "expected": "Practice Board",
+          "label": "The heading says Practice Board"
+        }
+      ],
+      "skills": [
+        "roles"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "q02",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "name",
+          "kind": "text",
+          "selector": "#name",
+          "expected": "Demo Vest",
+          "label": "Name is Demo Vest"
+        },
+        {
+          "id": "description",
+          "kind": "text",
+          "selector": "#description",
+          "expected": "A fictional vest for practice.",
+          "label": "Description is the requested paragraph"
+        }
+      ],
+      "skills": [
+        "html"
+      ],
+      "prerequisites": [
+        "q01"
+      ]
+    },
+    {
+      "id": "q03",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "color",
+          "kind": "css",
+          "selector": "#name",
+          "property": "color",
+          "expected": "rgb(0, 0, 255)",
+          "label": "Heading is blue"
+        },
+        {
+          "id": "padding",
+          "kind": "css",
+          "selector": ".card",
+          "property": "padding-top",
+          "expected": "24px",
+          "label": "Card has 24px of inner space"
+        }
+      ],
+      "skills": [
+        "css"
+      ],
+      "prerequisites": [
+        "q02"
+      ]
+    },
+    {
+      "id": "q04",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "price",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo price: 150",
+          "label": "Displayed demo price is 150"
+        }
+      ],
+      "skills": [
+        "values"
+      ],
+      "prerequisites": [
+        "q03"
+      ]
+    },
+    {
+      "id": "boss01",
+      "version": 2,
+      "kind": "boss",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "name",
+          "kind": "text",
+          "selector": "#name",
+          "expected": "Demo Helmet",
+          "label": "Heading is Demo Helmet"
+        },
+        {
+          "id": "padding",
+          "kind": "css",
+          "selector": ".card",
+          "property": "padding-top",
+          "expected": "24px",
+          "label": "Card padding is 24px"
+        },
+        {
+          "id": "price",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo price: 135",
+          "label": "Final changed requirement: price 135"
+        }
+      ],
+      "skills": [
+        "html",
+        "css",
+        "values"
+      ],
+      "prerequisites": [
+        "q04"
+      ]
+    },
+    {
+      "id": "q06",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "total",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo total: 375",
+          "label": "Total displays 375"
+        }
+      ],
+      "skills": [
+        "expressions"
+      ],
+      "prerequisites": [
+        "boss01"
+      ],
+      "gate": "boss01"
+    },
+    {
+      "id": "q07",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "unavailable",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Unavailable",
+          "label": "Zero stock displays Unavailable"
+        }
+      ],
+      "skills": [
+        "conditions"
+      ],
+      "prerequisites": [
+        "q06"
+      ]
+    },
+    {
+      "id": "q08",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "fn-a",
+          "kind": "function",
+          "fn": "calculateTotal",
+          "args": [
+            50,
+            2
+          ],
+          "value": 100,
+          "label": "calculateTotal(50, 2) returns 100"
+        },
+        {
+          "id": "fn-b",
+          "kind": "function",
+          "fn": "calculateTotal",
+          "args": [
+            30,
+            4
+          ],
+          "value": 120,
+          "label": "calculateTotal(30, 4) returns 120"
+        },
+        {
+          "id": "total",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo total: 180",
+          "label": "Visible total is 180"
+        }
+      ],
+      "skills": [
+        "functions"
+      ],
+      "prerequisites": [
+        "q07"
+      ]
+    },
+    {
+      "id": "q09",
+      "version": 2,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "expected": "Demo total: 200",
+          "initial": "Ready",
+          "label": "Button changes the output from Ready to Demo total: 200"
+        }
+      ],
+      "skills": [
+        "events"
+      ],
+      "prerequisites": [
+        "q08"
+      ]
+    },
+    {
+      "id": "boss02",
+      "version": 2,
+      "kind": "boss",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "fn-a",
+          "kind": "function",
+          "fn": "calculateTotal",
+          "args": [
+            20,
+            4
+          ],
+          "value": 80,
+          "label": "calculateTotal(20, 4) returns 80"
+        },
+        {
+          "id": "available",
+          "kind": "function",
+          "fn": "messageFor",
+          "args": [
+            2
+          ],
+          "expected": "Demo total: 210",
+          "label": "Available branch returns total 210"
+        },
+        {
+          "id": "empty",
+          "kind": "function",
+          "fn": "messageFor",
+          "args": [
+            0
+          ],
+          "expected": "Unavailable",
+          "label": "Unavailable branch works"
+        },
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "expected": "Demo total: 210",
+          "initial": "Ready",
+          "label": "Button changes the output from Ready to Demo total: 210"
+        }
+      ],
+      "skills": [
+        "expressions",
+        "conditions",
+        "functions",
+        "events"
+      ],
+      "prerequisites": [
+        "q09"
+      ]
+    },
+    {
+      "id": "opt01-repair",
+      "version": 2,
+      "kind": "optional",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "fixed",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo price: 95",
+          "label": "Selector repair updates the price"
+        }
+      ],
+      "skills": [
+        "html",
+        "values"
+      ],
+      "prerequisites": [
+        "q04"
+      ]
+    },
+    {
+      "id": "opt01-recall",
+      "version": 2,
+      "kind": "optional",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "name",
+          "kind": "text",
+          "selector": "#name",
+          "expected": "Demo Bag",
+          "label": "Heading is Demo Bag"
+        },
+        {
+          "id": "padding",
+          "kind": "css",
+          "selector": ".card",
+          "property": "padding-top",
+          "expected": "32px",
+          "label": "Card padding is 32px"
+        }
+      ],
+      "skills": [
+        "html",
+        "css"
+      ],
+      "prerequisites": [
+        "q03"
+      ]
+    },
+    {
+      "id": "opt02-repair",
+      "version": 2,
+      "kind": "optional",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "expected": "Demo total: 240",
+          "initial": "Ready",
+          "label": "Button changes the output from Ready to Demo total: 240"
+        }
+      ],
+      "skills": [
+        "functions",
+        "events"
+      ],
+      "prerequisites": [
+        "q09"
+      ]
+    },
+    {
+      "id": "opt02-recall",
+      "version": 2,
+      "kind": "optional",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "a",
+          "kind": "function",
+          "fn": "totalFor",
+          "args": [
+            11,
+            3
+          ],
+          "value": 33,
+          "label": "totalFor(11, 3) returns 33"
+        },
+        {
+          "id": "b",
+          "kind": "function",
+          "fn": "totalFor",
+          "args": [
+            90,
+            4
+          ],
+          "value": 360,
+          "label": "totalFor(90, 4) returns 360"
+        },
+        {
+          "id": "total",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo total: 360",
+          "label": "New total is 360"
+        }
+      ],
+      "skills": [
+        "expressions",
+        "functions"
+      ],
+      "prerequisites": [
+        "q08"
+      ]
+    },
+    {
+      "id": "review01",
+      "version": 2,
+      "kind": "review",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "name",
+          "kind": "text",
+          "selector": "#name",
+          "expected": "Demo Rope",
+          "label": "New heading is Demo Rope"
+        },
+        {
+          "id": "padding",
+          "kind": "css",
+          "selector": ".card",
+          "property": "padding-top",
+          "expected": "28px",
+          "label": "New padding is 28px"
+        },
+        {
+          "id": "price",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo price: 65",
+          "label": "New price is 65"
+        }
+      ],
+      "skills": [
+        "roles",
+        "html",
+        "css",
+        "values"
+      ],
+      "prerequisites": [
+        "boss01"
+      ]
+    },
+    {
+      "id": "review02",
+      "version": 2,
+      "kind": "review",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "one",
+          "kind": "function",
+          "fn": "labelFor",
+          "args": [
+            1
+          ],
+          "expected": "Demo total: 180",
+          "label": "Positive stock gives 180"
+        },
+        {
+          "id": "zero",
+          "kind": "function",
+          "fn": "labelFor",
+          "args": [
+            0
+          ],
+          "expected": "Unavailable",
+          "label": "Zero stock is unavailable"
+        },
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "expected": "Demo total: 180",
+          "initial": "Ready",
+          "label": "Button changes the output from Ready to Demo total: 180"
+        }
+      ],
+      "skills": [
+        "expressions",
+        "conditions",
+        "functions",
+        "events"
+      ],
+      "prerequisites": [
+        "boss02"
+      ]
+    },
+    {
+      "id": "boss01-fresh",
+      "version": 2,
+      "kind": "variation",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "name",
+          "kind": "text",
+          "selector": "#name",
+          "expected": "Demo Bag",
+          "label": "Heading is Demo Bag"
+        },
+        {
+          "id": "padding",
+          "kind": "css",
+          "selector": ".card",
+          "property": "padding-top",
+          "expected": "32px",
+          "label": "Padding is 32px"
+        },
+        {
+          "id": "price",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo price: 185",
+          "label": "Changed price is 185"
+        }
+      ],
+      "skills": [
+        "html",
+        "css",
+        "values"
+      ],
+      "prerequisites": [
+        "boss01"
+      ]
+    },
+    {
+      "id": "boss02-fresh",
+      "version": 2,
+      "kind": "variation",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "fn-a",
+          "kind": "function",
+          "fn": "calculateTotal",
+          "args": [
+            20,
+            4
+          ],
+          "value": 80,
+          "label": "calculateTotal(20, 4) returns 80"
+        },
+        {
+          "id": "available",
+          "kind": "function",
+          "fn": "messageFor",
+          "args": [
+            3
+          ],
+          "expected": "Demo total: 200",
+          "label": "Changed total is 200"
+        },
+        {
+          "id": "empty",
+          "kind": "function",
+          "fn": "messageFor",
+          "args": [
+            0
+          ],
+          "expected": "Unavailable",
+          "label": "Zero stock is unavailable"
+        },
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "expected": "Demo total: 200",
+          "initial": "Ready",
+          "label": "Button changes the output from Ready to Demo total: 200"
+        }
+      ],
+      "skills": [
+        "expressions",
+        "conditions",
+        "functions",
+        "events"
+      ],
+      "prerequisites": [
+        "boss02"
+      ]
+    },
+    {
+      "id": "q11",
+      "version": 1,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "first",
+          "kind": "function",
+          "fn": "itemName",
+          "args": [
+            0
+          ],
+          "expected": "Demo Cap",
+          "label": "itemName(0) returns \"Demo Cap\""
+        },
+        {
+          "id": "second",
+          "kind": "function",
+          "fn": "itemName",
+          "args": [
+            1
+          ],
+          "expected": "Demo Bag",
+          "label": "itemName(1) returns \"Demo Bag\""
+        },
+        {
+          "id": "last",
+          "kind": "function",
+          "fn": "itemName",
+          "args": [
+            2
+          ],
+          "expected": "Demo Rope",
+          "label": "itemName(2) returns \"Demo Rope\""
+        },
+        {
+          "id": "output",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Second: Demo Bag · Items: 3",
+          "label": "The page shows Second: Demo Bag · Items: 3"
+        }
+      ],
+      "skills": [
+        "arrays"
+      ],
+      "prerequisites": [
+        "boss02"
+      ],
+      "gate": "boss02"
+    },
+    {
+      "id": "q12",
+      "version": 1,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "one",
+          "kind": "function",
+          "fn": "costFor",
+          "args": [
+            1
+          ],
+          "value": 120,
+          "label": "costFor(1) returns 120"
+        },
+        {
+          "id": "three",
+          "kind": "function",
+          "fn": "costFor",
+          "args": [
+            3
+          ],
+          "value": 360,
+          "label": "costFor(3) returns 360"
+        },
+        {
+          "id": "boundary",
+          "kind": "function",
+          "fn": "costFor",
+          "args": [
+            4
+          ],
+          "value": 480,
+          "label": "costFor(4) returns 480"
+        },
+        {
+          "id": "output",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Demo total: 360",
+          "label": "The page shows Demo total: 360"
+        }
+      ],
+      "skills": [
+        "objects",
+        "functions"
+      ],
+      "prerequisites": [
+        "q11"
+      ]
+    },
+    {
+      "id": "q13",
+      "version": 1,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "valid",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            2,
+            5
+          ],
+          "expected": "Quantity OK",
+          "label": "quantityMessage(2, 5) returns \"Quantity OK\""
+        },
+        {
+          "id": "equal",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            5,
+            5
+          ],
+          "expected": "Quantity OK",
+          "label": "quantityMessage(5, 5) returns \"Quantity OK\""
+        },
+        {
+          "id": "zero",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            0,
+            5
+          ],
+          "expected": "Use at least 1",
+          "label": "quantityMessage(0, 5) returns \"Use at least 1\""
+        },
+        {
+          "id": "negative",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            -1,
+            5
+          ],
+          "expected": "Use at least 1",
+          "label": "quantityMessage(-1, 5) returns \"Use at least 1\""
+        },
+        {
+          "id": "over",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            6,
+            5
+          ],
+          "expected": "Not enough stock",
+          "label": "quantityMessage(6, 5) returns \"Not enough stock\""
+        },
+        {
+          "id": "decimal",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            1.5,
+            5
+          ],
+          "expected": "Use a whole number",
+          "label": "quantityMessage(1.5, 5) returns \"Use a whole number\""
+        },
+        {
+          "id": "string",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            "2",
+            5
+          ],
+          "expected": "Use a whole number",
+          "label": "quantityMessage(\"2\", 5) returns \"Use a whole number\""
+        },
+        {
+          "id": "null",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            null,
+            5
+          ],
+          "expected": "Use a whole number",
+          "label": "quantityMessage(null, 5) returns \"Use a whole number\""
+        },
+        {
+          "id": "boolean",
+          "kind": "function",
+          "fn": "quantityMessage",
+          "args": [
+            true,
+            5
+          ],
+          "expected": "Use a whole number",
+          "label": "quantityMessage(true, 5) returns \"Use a whole number\""
+        },
+        {
+          "id": "output",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Not enough stock",
+          "label": "The page shows Not enough stock"
+        }
+      ],
+      "skills": [
+        "validation",
+        "conditions",
+        "functions"
+      ],
+      "prerequisites": [
+        "q12"
+      ]
+    },
+    {
+      "id": "q14",
+      "version": 1,
+      "kind": "core",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "hidden",
+          "kind": "function",
+          "fn": "deliveryTotal",
+          "args": [
+            80,
+            1,
+            10
+          ],
+          "value": 90,
+          "label": "deliveryTotal(80, 1, 10) returns 90"
+        },
+        {
+          "id": "exposed",
+          "kind": "function",
+          "fn": "deliveryTotal",
+          "args": [
+            80,
+            2,
+            10
+          ],
+          "value": 170,
+          "label": "deliveryTotal(80, 2, 10) returns 170"
+        },
+        {
+          "id": "other",
+          "kind": "function",
+          "fn": "deliveryTotal",
+          "args": [
+            35,
+            3,
+            5
+          ],
+          "value": 110,
+          "label": "deliveryTotal(35, 3, 5) returns 110"
+        },
+        {
+          "id": "no-fee",
+          "kind": "function",
+          "fn": "deliveryTotal",
+          "args": [
+            60,
+            4,
+            0
+          ],
+          "value": 240,
+          "label": "deliveryTotal(60, 4, 0) returns 240"
+        },
+        {
+          "id": "output",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Delivery total: 170",
+          "label": "The page shows Delivery total: 170"
+        }
+      ],
+      "skills": [
+        "debugging",
+        "expressions"
+      ],
+      "prerequisites": [
+        "q13"
+      ]
+    },
+    {
+      "id": "boss03",
+      "version": 1,
+      "kind": "boss",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "one",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            1
+          ],
+          "expected": "Demo Cap total: 100",
+          "label": "orderMessage(0, 1) returns \"Demo Cap total: 100\""
+        },
+        {
+          "id": "two",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            2
+          ],
+          "expected": "Demo Cap total: 180",
+          "label": "orderMessage(0, 2) returns \"Demo Cap total: 180\""
+        },
+        {
+          "id": "waived",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            3
+          ],
+          "expected": "Demo Cap total: 240",
+          "label": "orderMessage(0, 3) returns \"Demo Cap total: 240\""
+        },
+        {
+          "id": "equal",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            4
+          ],
+          "expected": "Demo Cap total: 320",
+          "label": "orderMessage(0, 4) returns \"Demo Cap total: 320\""
+        },
+        {
+          "id": "second-equal",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            1,
+            2
+          ],
+          "expected": "Demo Bag total: 320",
+          "label": "orderMessage(1, 2) returns \"Demo Bag total: 320\""
+        },
+        {
+          "id": "missing",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            2,
+            1
+          ],
+          "expected": "Choose a product",
+          "label": "orderMessage(2, 1) returns \"Choose a product\""
+        },
+        {
+          "id": "negative-index",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            -1,
+            1
+          ],
+          "expected": "Choose a product",
+          "label": "orderMessage(-1, 1) returns \"Choose a product\""
+        },
+        {
+          "id": "decimal-index",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0.5,
+            1
+          ],
+          "expected": "Choose a product",
+          "label": "orderMessage(0.5, 1) returns \"Choose a product\""
+        },
+        {
+          "id": "string-index",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            "0",
+            1
+          ],
+          "expected": "Choose a product",
+          "label": "orderMessage(\"0\", 1) returns \"Choose a product\""
+        },
+        {
+          "id": "null-index",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            null,
+            1
+          ],
+          "expected": "Choose a product",
+          "label": "orderMessage(null, 1) returns \"Choose a product\""
+        },
+        {
+          "id": "zero",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            0
+          ],
+          "expected": "Use at least 1",
+          "label": "orderMessage(0, 0) returns \"Use at least 1\""
+        },
+        {
+          "id": "negative",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            -1
+          ],
+          "expected": "Use at least 1",
+          "label": "orderMessage(0, -1) returns \"Use at least 1\""
+        },
+        {
+          "id": "over",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            1,
+            3
+          ],
+          "expected": "Not enough stock",
+          "label": "orderMessage(1, 3) returns \"Not enough stock\""
+        },
+        {
+          "id": "fraction",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            1.5
+          ],
+          "expected": "Use a whole number",
+          "label": "orderMessage(0, 1.5) returns \"Use a whole number\""
+        },
+        {
+          "id": "text",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            "2"
+          ],
+          "expected": "Use a whole number",
+          "label": "orderMessage(0, \"2\") returns \"Use a whole number\""
+        },
+        {
+          "id": "null",
+          "kind": "function",
+          "fn": "orderMessage",
+          "args": [
+            0,
+            null
+          ],
+          "expected": "Use a whole number",
+          "label": "orderMessage(0, null) returns \"Use a whole number\""
+        },
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "initial": "Ready",
+          "expected": "Demo Cap total: 180",
+          "label": "A click changes Ready to Demo Cap total: 180"
+        }
+      ],
+      "skills": [
+        "arrays",
+        "objects",
+        "validation",
+        "debugging",
+        "events",
+        "functions"
+      ],
+      "prerequisites": [
+        "q14"
+      ]
+    },
+    {
+      "id": "opt03-repair",
+      "version": 1,
+      "kind": "optional",
+      "fresh": false,
+      "checks": [
+        {
+          "id": "below",
+          "kind": "function",
+          "fn": "stockMessage",
+          "args": [
+            2,
+            3
+          ],
+          "expected": "Available",
+          "label": "stockMessage(2, 3) returns \"Available\""
+        },
+        {
+          "id": "equal",
+          "kind": "function",
+          "fn": "stockMessage",
+          "args": [
+            3,
+            3
+          ],
+          "expected": "Available",
+          "label": "stockMessage(3, 3) returns \"Available\""
+        },
+        {
+          "id": "above",
+          "kind": "function",
+          "fn": "stockMessage",
+          "args": [
+            4,
+            3
+          ],
+          "expected": "Too many",
+          "label": "stockMessage(4, 3) returns \"Too many\""
+        },
+        {
+          "id": "empty",
+          "kind": "function",
+          "fn": "stockMessage",
+          "args": [
+            1,
+            0
+          ],
+          "expected": "Too many",
+          "label": "stockMessage(1, 0) returns \"Too many\""
+        },
+        {
+          "id": "output",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Available",
+          "label": "The page shows Available"
+        }
+      ],
+      "skills": [
+        "validation",
+        "debugging"
+      ],
+      "prerequisites": [
+        "q13"
+      ]
+    },
+    {
+      "id": "opt03-recall",
+      "version": 1,
+      "kind": "optional",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "first",
+          "kind": "function",
+          "fn": "spacesLeft",
+          "args": [
+            0
+          ],
+          "value": 4,
+          "label": "spacesLeft(0) returns 4"
+        },
+        {
+          "id": "full",
+          "kind": "function",
+          "fn": "spacesLeft",
+          "args": [
+            1
+          ],
+          "value": 0,
+          "label": "spacesLeft(1) returns 0"
+        },
+        {
+          "id": "other",
+          "kind": "function",
+          "fn": "spacesLeft",
+          "args": [
+            2
+          ],
+          "value": 6,
+          "label": "spacesLeft(2) returns 6"
+        },
+        {
+          "id": "missing",
+          "kind": "function",
+          "fn": "spacesLeft",
+          "args": [
+            3
+          ],
+          "expected": "Choose a group",
+          "label": "spacesLeft(3) returns \"Choose a group\""
+        },
+        {
+          "id": "negative",
+          "kind": "function",
+          "fn": "spacesLeft",
+          "args": [
+            -1
+          ],
+          "expected": "Choose a group",
+          "label": "spacesLeft(-1) returns \"Choose a group\""
+        },
+        {
+          "id": "output",
+          "kind": "text",
+          "selector": "#output",
+          "expected": "Free spaces: 4",
+          "label": "The page shows Free spaces: 4"
+        }
+      ],
+      "skills": [
+        "arrays",
+        "objects",
+        "functions"
+      ],
+      "prerequisites": [
+        "q12"
+      ]
+    },
+    {
+      "id": "boss03-fresh",
+      "version": 1,
+      "kind": "variation",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "one",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            1
+          ],
+          "expected": "Practice Stickers total: 45",
+          "label": "reserveMessage(0, 1) returns \"Practice Stickers total: 45\""
+        },
+        {
+          "id": "two",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            2
+          ],
+          "expected": "Practice Stickers total: 75",
+          "label": "reserveMessage(0, 2) returns \"Practice Stickers total: 75\""
+        },
+        {
+          "id": "limit",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            3
+          ],
+          "expected": "Practice Stickers total: 120",
+          "label": "reserveMessage(0, 3) returns \"Practice Stickers total: 120\""
+        },
+        {
+          "id": "over-limit",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            4
+          ],
+          "expected": "Limit is 3",
+          "label": "reserveMessage(0, 4) returns \"Limit is 3\""
+        },
+        {
+          "id": "other-equal",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            1,
+            2
+          ],
+          "expected": "Practice Mug total: 225",
+          "label": "reserveMessage(1, 2) returns \"Practice Mug total: 225\""
+        },
+        {
+          "id": "over-stock",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            1,
+            3
+          ],
+          "expected": "Not enough stock",
+          "label": "reserveMessage(1, 3) returns \"Not enough stock\""
+        },
+        {
+          "id": "missing",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            2,
+            1
+          ],
+          "expected": "Choose a kit",
+          "label": "reserveMessage(2, 1) returns \"Choose a kit\""
+        },
+        {
+          "id": "negative-index",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            -1,
+            1
+          ],
+          "expected": "Choose a kit",
+          "label": "reserveMessage(-1, 1) returns \"Choose a kit\""
+        },
+        {
+          "id": "string-index",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            "0",
+            1
+          ],
+          "expected": "Choose a kit",
+          "label": "reserveMessage(\"0\", 1) returns \"Choose a kit\""
+        },
+        {
+          "id": "fraction-index",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0.5,
+            1
+          ],
+          "expected": "Choose a kit",
+          "label": "reserveMessage(0.5, 1) returns \"Choose a kit\""
+        },
+        {
+          "id": "null-index",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            null,
+            1
+          ],
+          "expected": "Choose a kit",
+          "label": "reserveMessage(null, 1) returns \"Choose a kit\""
+        },
+        {
+          "id": "zero",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            0
+          ],
+          "expected": "Use at least 1",
+          "label": "reserveMessage(0, 0) returns \"Use at least 1\""
+        },
+        {
+          "id": "negative",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            -2
+          ],
+          "expected": "Use at least 1",
+          "label": "reserveMessage(0, -2) returns \"Use at least 1\""
+        },
+        {
+          "id": "decimal",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            2.5
+          ],
+          "expected": "Use a whole number",
+          "label": "reserveMessage(0, 2.5) returns \"Use a whole number\""
+        },
+        {
+          "id": "string",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            "2"
+          ],
+          "expected": "Use a whole number",
+          "label": "reserveMessage(0, \"2\") returns \"Use a whole number\""
+        },
+        {
+          "id": "null",
+          "kind": "function",
+          "fn": "reserveMessage",
+          "args": [
+            0,
+            null
+          ],
+          "expected": "Use a whole number",
+          "label": "reserveMessage(0, null) returns \"Use a whole number\""
+        },
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "initial": "Ready",
+          "expected": "Practice Stickers total: 75",
+          "label": "A click changes Ready to Practice Stickers total: 75"
+        }
+      ],
+      "skills": [
+        "arrays",
+        "objects",
+        "validation",
+        "debugging",
+        "events",
+        "functions"
+      ],
+      "prerequisites": [
+        "boss03"
+      ]
+    },
+    {
+      "id": "review03",
+      "version": 1,
+      "kind": "review",
+      "fresh": true,
+      "checks": [
+        {
+          "id": "one",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            1
+          ],
+          "expected": "Booked: 65",
+          "label": "bookingMessage(0, 1) returns \"Booked: 65\""
+        },
+        {
+          "id": "two",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            1,
+            2
+          ],
+          "expected": "Booked: 185",
+          "label": "bookingMessage(1, 2) returns \"Booked: 185\""
+        },
+        {
+          "id": "first-equal",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            3
+          ],
+          "expected": "Booked: 190",
+          "label": "bookingMessage(0, 3) returns \"Booked: 190\""
+        },
+        {
+          "id": "last-equal",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            1,
+            4
+          ],
+          "expected": "Booked: 375",
+          "label": "bookingMessage(1, 4) returns \"Booked: 375\""
+        },
+        {
+          "id": "over",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            4
+          ],
+          "expected": "Not enough seats",
+          "label": "bookingMessage(0, 4) returns \"Not enough seats\""
+        },
+        {
+          "id": "missing",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            2,
+            1
+          ],
+          "expected": "Choose a session",
+          "label": "bookingMessage(2, 1) returns \"Choose a session\""
+        },
+        {
+          "id": "negative-index",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            -1,
+            1
+          ],
+          "expected": "Choose a session",
+          "label": "bookingMessage(-1, 1) returns \"Choose a session\""
+        },
+        {
+          "id": "fraction-index",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0.5,
+            1
+          ],
+          "expected": "Choose a session",
+          "label": "bookingMessage(0.5, 1) returns \"Choose a session\""
+        },
+        {
+          "id": "string-index",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            "0",
+            1
+          ],
+          "expected": "Choose a session",
+          "label": "bookingMessage(\"0\", 1) returns \"Choose a session\""
+        },
+        {
+          "id": "null-index",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            null,
+            1
+          ],
+          "expected": "Choose a session",
+          "label": "bookingMessage(null, 1) returns \"Choose a session\""
+        },
+        {
+          "id": "zero",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            0
+          ],
+          "expected": "Use at least 1",
+          "label": "bookingMessage(0, 0) returns \"Use at least 1\""
+        },
+        {
+          "id": "negative",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            -1
+          ],
+          "expected": "Use at least 1",
+          "label": "bookingMessage(0, -1) returns \"Use at least 1\""
+        },
+        {
+          "id": "decimal",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            1.5
+          ],
+          "expected": "Use a whole number",
+          "label": "bookingMessage(0, 1.5) returns \"Use a whole number\""
+        },
+        {
+          "id": "string",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            "2"
+          ],
+          "expected": "Use a whole number",
+          "label": "bookingMessage(0, \"2\") returns \"Use a whole number\""
+        },
+        {
+          "id": "null",
+          "kind": "function",
+          "fn": "bookingMessage",
+          "args": [
+            0,
+            null
+          ],
+          "expected": "Use a whole number",
+          "label": "bookingMessage(0, null) returns \"Use a whole number\""
+        },
+        {
+          "id": "click",
+          "kind": "click",
+          "selector": "#action",
+          "initial": "Ready",
+          "expected": "Booked: 185",
+          "label": "A click changes Ready to Booked: 185"
+        }
+      ],
+      "skills": [
+        "arrays",
+        "objects",
+        "validation",
+        "debugging",
+        "events",
+        "functions"
+      ],
+      "prerequisites": [
+        "boss03"
+      ]
+    }
+  ],
+  "skillIds": [
+    "roles",
+    "html",
+    "css",
+    "values",
+    "expressions",
+    "conditions",
+    "functions",
+    "events",
+    "arrays",
+    "objects",
+    "validation",
+    "debugging"
+  ],
+  "previouslyUnlocked": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "boss01",
+    "q06",
+    "opt01-repair",
+    "opt01-recall",
+    "review01",
+    "boss01-fresh"
+  ],
+  "progress": {
+    "schemaVersion": 1,
+    "settings": {
+      "onboarded": true,
+      "coreTarget": 5,
+      "optionalTarget": 2,
+      "reviewDays": {
+        "first": 9,
+        "second": 35
+      },
+      "seasonStart": "2026-10-05"
+    },
+    "packs": {
+      "season-01-foundations": 3
+    },
+    "attempts": [
+      {
+        "id": "a024d41e-a541-4653-8ba0-69cb15f04096",
+        "questId": "q01",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Practice Board</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 16px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": ""
+        },
+        "prediction": "Before running: I expect the changed requirement to control the displayed result.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": true,
+        "checks": [
+          {
+            "id": "heading",
+            "label": "The heading says Practice Board",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          }
+        ],
+        "checkedCode": "{\"html\":\"<article class=\\\"card\\\">\\n  <h2 id=\\\"name\\\">Practice Board</h2>\\n  <p id=\\\"description\\\">A fictional practice product.</p>\\n  <p id=\\\"output\\\">Ready</p>\\n  <button id=\\\"action\\\">Try it</button>\\n</article>\",\"css\":\"body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\\n.card { padding: 16px; background: white; border-radius: 12px; }\\nh2 { color: #193e36; }\\nbutton { padding: 12px; cursor: pointer; }\",\"js\":\"\"}",
+        "rubric": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-06T04:00:00.000Z",
+        "archived": false,
+        "completedAt": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "questId": "q02",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Vest</h2>\n  <p id=\"description\">A fictional vest for practice.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 16px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": ""
+        },
+        "prediction": "Before running: I expect the changed requirement to control the displayed result.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 1,
+        "solution": false,
+        "checks": [
+          {
+            "id": "name",
+            "label": "Name is Demo Vest",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          },
+          {
+            "id": "description",
+            "label": "Description is the requested paragraph",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          }
+        ],
+        "checkedCode": "{\"html\":\"<article class=\\\"card\\\">\\n  <h2 id=\\\"name\\\">Demo Vest</h2>\\n  <p id=\\\"description\\\">A fictional vest for practice.</p>\\n  <p id=\\\"output\\\">Ready</p>\\n  <button id=\\\"action\\\">Try it</button>\\n</article>\",\"css\":\"body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\\n.card { padding: 16px; background: white; border-radius: 12px; }\\nh2 { color: #193e36; }\\nbutton { padding: 12px; cursor: pointer; }\",\"js\":\"\"}",
+        "rubric": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-06T04:00:00.000Z",
+        "archived": false,
+        "completedAt": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "questId": "q03",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Board</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 24px; background: white; border-radius: 12px; }\nh2 { color: blue; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": ""
+        },
+        "prediction": "Before running: I expect the changed requirement to control the displayed result.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false,
+        "checks": [
+          {
+            "id": "color",
+            "label": "Heading is blue",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          },
+          {
+            "id": "padding",
+            "label": "Card has 24px of inner space",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          }
+        ],
+        "checkedCode": "{\"html\":\"<article class=\\\"card\\\">\\n  <h2 id=\\\"name\\\">Demo Board</h2>\\n  <p id=\\\"description\\\">A fictional practice product.</p>\\n  <p id=\\\"output\\\">Ready</p>\\n  <button id=\\\"action\\\">Try it</button>\\n</article>\",\"css\":\"body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\\n.card { padding: 24px; background: white; border-radius: 12px; }\\nh2 { color: blue; }\\nbutton { padding: 12px; cursor: pointer; }\",\"js\":\"\"}",
+        "rubric": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-06T04:00:00.000Z",
+        "archived": false,
+        "completedAt": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "questId": "q04",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Board</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 16px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": "let price = 150;\ndocument.querySelector(\"#output\").textContent = \"Demo price: \" + price;"
+        },
+        "prediction": "Before running: I expect the changed requirement to control the displayed result.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false,
+        "checks": [
+          {
+            "id": "price",
+            "label": "Displayed demo price is 150",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          }
+        ],
+        "checkedCode": "{\"html\":\"<article class=\\\"card\\\">\\n  <h2 id=\\\"name\\\">Demo Board</h2>\\n  <p id=\\\"description\\\">A fictional practice product.</p>\\n  <p id=\\\"output\\\">Ready</p>\\n  <button id=\\\"action\\\">Try it</button>\\n</article>\",\"css\":\"body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\\n.card { padding: 16px; background: white; border-radius: 12px; }\\nh2 { color: #193e36; }\\nbutton { padding: 12px; cursor: pointer; }\",\"js\":\"let price = 150;\\ndocument.querySelector(\\\"#output\\\").textContent = \\\"Demo price: \\\" + price;\"}",
+        "rubric": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-06T04:00:00.000Z",
+        "archived": false,
+        "completedAt": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "questId": "boss01",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Helmet</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 24px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": "let price = 135;\ndocument.querySelector(\"#output\").textContent = \"Demo price: \" + price;"
+        },
+        "prediction": "Before running: I expect the changed requirement to control the displayed result.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false,
+        "checks": [
+          {
+            "id": "name",
+            "label": "Heading is Demo Helmet",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          },
+          {
+            "id": "padding",
+            "label": "Card padding is 24px",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          },
+          {
+            "id": "price",
+            "label": "Final changed requirement: price 135",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          }
+        ],
+        "checkedCode": "{\"html\":\"<article class=\\\"card\\\">\\n  <h2 id=\\\"name\\\">Demo Helmet</h2>\\n  <p id=\\\"description\\\">A fictional practice product.</p>\\n  <p id=\\\"output\\\">Ready</p>\\n  <button id=\\\"action\\\">Try it</button>\\n</article>\",\"css\":\"body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\\n.card { padding: 24px; background: white; border-radius: 12px; }\\nh2 { color: #193e36; }\\nbutton { padding: 12px; cursor: pointer; }\",\"js\":\"let price = 135;\\ndocument.querySelector(\\\"#output\\\").textContent = \\\"Demo price: \\\" + price;\"}",
+        "rubric": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "assessment": "coach",
+        "reviewerNotes": "Fixture of a real review record: learner explained the changed heading and repaired the selector independently.",
+        "updatedAt": "2026-10-06T04:00:00.000Z",
+        "archived": false,
+        "completedAt": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "questId": "review01",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Rope</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 28px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": "let price = 65;\ndocument.querySelector(\"#output\").textContent = \"Demo price: \" + price;"
+        },
+        "prediction": "Before running: I expect the changed requirement to control the displayed result.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false,
+        "checks": [
+          {
+            "id": "name",
+            "label": "New heading is Demo Rope",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          },
+          {
+            "id": "padding",
+            "label": "New padding is 28px",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          },
+          {
+            "id": "price",
+            "label": "New price is 65",
+            "passed": true,
+            "detail": "Matched expected output in pre-redesign fixture"
+          }
+        ],
+        "checkedCode": "{\"html\":\"<article class=\\\"card\\\">\\n  <h2 id=\\\"name\\\">Demo Rope</h2>\\n  <p id=\\\"description\\\">A fictional practice product.</p>\\n  <p id=\\\"output\\\">Ready</p>\\n  <button id=\\\"action\\\">Try it</button>\\n</article>\",\"css\":\"body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\\n.card { padding: 28px; background: white; border-radius: 12px; }\\nh2 { color: #193e36; }\\nbutton { padding: 12px; cursor: pointer; }\",\"js\":\"let price = 65;\\ndocument.querySelector(\\\"#output\\\").textContent = \\\"Demo price: \\\" + price;\"}",
+        "rubric": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-16T04:00:00.000Z",
+        "archived": false,
+        "completedAt": "2026-10-16T04:00:00.000Z"
+      },
+      {
+        "id": "4f593c60-1a72-4dbd-8945-3b2188f54dd8",
+        "questId": "q06",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Board</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 16px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": "// Keep the archived earlier attempt\nconst oldPrice = 125;"
+        },
+        "prediction": "Archived earlier prediction",
+        "reflection": "",
+        "explanation": "",
+        "bug": "",
+        "nextStep": "",
+        "hints": 0,
+        "solution": true,
+        "checks": [],
+        "checkedCode": "",
+        "rubric": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-06T04:00:00.000Z",
+        "archived": true
+      },
+      {
+        "id": "f89114ee-cefc-43d5-bef0-6099dd32dbbc",
+        "questId": "q06",
+        "contentVersion": 2,
+        "code": {
+          "html": "<article class=\"card\">\n  <h2 id=\"name\">Demo Board</h2>\n  <p id=\"description\">A fictional practice product.</p>\n  <p id=\"output\">Ready</p>\n  <button id=\"action\">Try it</button>\n</article>",
+          "css": "body { font-family: system-ui; padding: 24px; background: #f8f5ed; }\n.card { padding: 16px; background: white; border-radius: 12px; }\nh2 { color: #193e36; }\nbutton { padding: 12px; cursor: pointer; }",
+          "js": "// Preserve this private unfinished draft exactly\nconst price = 175;\nconst quantity = 2;"
+        },
+        "prediction": "Unfinished prediction with a question: will this number be text?",
+        "reflection": "Unfinished reflection to preserve",
+        "explanation": "Partial explanation",
+        "bug": "Still investigating",
+        "nextStep": "Resume the JavaScript tab",
+        "hints": 2,
+        "solution": true,
+        "checks": [],
+        "checkedCode": "",
+        "rubric": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "assessment": "self",
+        "reviewerNotes": "",
+        "updatedAt": "2026-10-17T04:00:00.000Z",
+        "archived": false
+      }
+    ],
+    "evidence": [
+      {
+        "id": "a024d41e-a541-4653-8ba0-69cb15f04096:roles",
+        "skillId": "roles",
+        "questId": "q01",
+        "attemptId": "a024d41e-a541-4653-8ba0-69cb15f04096",
+        "level": "Guided",
+        "source": "practice",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Practice completed. A fresh variation and explanation are required for independence."
+      },
+      {
+        "id": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3:html",
+        "skillId": "html",
+        "questId": "q02",
+        "attemptId": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "level": "With hints",
+        "source": "practice",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Practice completed. A fresh variation and explanation are required for independence."
+      },
+      {
+        "id": "b6dcf36d-b233-4dd0-aa71-16c258f1c932:css",
+        "skillId": "css",
+        "questId": "q03",
+        "attemptId": "b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "level": "Guided",
+        "source": "practice",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Practice completed. A fresh variation and explanation are required for independence."
+      },
+      {
+        "id": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f:values",
+        "skillId": "values",
+        "questId": "q04",
+        "attemptId": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "level": "Guided",
+        "source": "practice",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Practice completed. A fresh variation and explanation are required for independence."
+      },
+      {
+        "id": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d:html",
+        "skillId": "html",
+        "questId": "boss01",
+        "attemptId": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "level": "Independent",
+        "source": "coach",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Fixture of a real review record: learner explained the changed heading and repaired the selector independently."
+      },
+      {
+        "id": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d:css",
+        "skillId": "css",
+        "questId": "boss01",
+        "attemptId": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "level": "Independent",
+        "source": "coach",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Fixture of a real review record: learner explained the changed heading and repaired the selector independently."
+      },
+      {
+        "id": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d:values",
+        "skillId": "values",
+        "questId": "boss01",
+        "attemptId": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "level": "Independent",
+        "source": "coach",
+        "date": "2026-10-06T04:00:00.000Z",
+        "notes": "Fixture of a real review record: learner explained the changed heading and repaired the selector independently."
+      },
+      {
+        "id": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff:roles",
+        "skillId": "roles",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "level": "Independent",
+        "source": "self",
+        "date": "2026-10-16T04:00:00.000Z",
+        "notes": "The function receives an input, checks the rule, then returns the output."
+      },
+      {
+        "id": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff:html",
+        "skillId": "html",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "level": "Retained",
+        "source": "self",
+        "date": "2026-10-16T04:00:00.000Z",
+        "notes": "The function receives an input, checks the rule, then returns the output."
+      },
+      {
+        "id": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff:css",
+        "skillId": "css",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "level": "Retained",
+        "source": "self",
+        "date": "2026-10-16T04:00:00.000Z",
+        "notes": "The function receives an input, checks the rule, then returns the output."
+      },
+      {
+        "id": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff:values",
+        "skillId": "values",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "level": "Retained",
+        "source": "self",
+        "date": "2026-10-16T04:00:00.000Z",
+        "notes": "The function receives an input, checks the rule, then returns the output."
+      }
+    ],
+    "awards": [
+      {
+        "id": "q01:prediction",
+        "questId": "q01",
+        "attemptId": "a024d41e-a541-4653-8ba0-69cb15f04096",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q01:modification",
+        "questId": "q01",
+        "attemptId": "a024d41e-a541-4653-8ba0-69cb15f04096",
+        "amount": 10,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q01:reflection",
+        "questId": "q01",
+        "attemptId": "a024d41e-a541-4653-8ba0-69cb15f04096",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q02:prediction",
+        "questId": "q02",
+        "attemptId": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q02:modification",
+        "questId": "q02",
+        "attemptId": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "amount": 10,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q02:reflection",
+        "questId": "q02",
+        "attemptId": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q03:prediction",
+        "questId": "q03",
+        "attemptId": "b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q03:modification",
+        "questId": "q03",
+        "attemptId": "b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "amount": 10,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q03:reflection",
+        "questId": "q03",
+        "attemptId": "b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q04:prediction",
+        "questId": "q04",
+        "attemptId": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q04:modification",
+        "questId": "q04",
+        "attemptId": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "amount": 10,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "q04:reflection",
+        "questId": "q04",
+        "attemptId": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "amount": 5,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "boss01:boss",
+        "questId": "boss01",
+        "attemptId": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "amount": 50,
+        "date": "2026-10-06T04:00:00.000Z"
+      },
+      {
+        "id": "review01:prediction",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "amount": 5,
+        "date": "2026-10-16T04:00:00.000Z"
+      },
+      {
+        "id": "review01:modification",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "amount": 10,
+        "date": "2026-10-16T04:00:00.000Z"
+      },
+      {
+        "id": "review01:reflection",
+        "questId": "review01",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "amount": 5,
+        "date": "2026-10-16T04:00:00.000Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "review:roles",
+        "skillId": "roles",
+        "due": "2026-11-10",
+        "phase": 30,
+        "gap": "",
+        "completedQuestIds": [
+          "review01"
+        ]
+      },
+      {
+        "id": "review:html",
+        "skillId": "html",
+        "due": "2026-11-10",
+        "phase": 30,
+        "gap": "",
+        "completedQuestIds": [
+          "review01"
+        ]
+      },
+      {
+        "id": "review:css",
+        "skillId": "css",
+        "due": "2026-11-10",
+        "phase": 30,
+        "gap": "",
+        "completedQuestIds": [
+          "review01"
+        ]
+      },
+      {
+        "id": "review:values",
+        "skillId": "values",
+        "due": "2026-11-10",
+        "phase": 30,
+        "gap": "",
+        "completedQuestIds": [
+          "review01"
+        ]
+      }
+    ],
+    "journal": [
+      {
+        "id": "journal:a024d41e-a541-4653-8ba0-69cb15f04096",
+        "attemptId": "a024d41e-a541-4653-8ba0-69cb15f04096",
+        "questId": "q01",
+        "date": "2026-10-06T04:00:00.000Z",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": true
+      },
+      {
+        "id": "journal:a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "attemptId": "a83f7cd1-c5a8-4fae-a08c-5aa4d571f3d3",
+        "questId": "q02",
+        "date": "2026-10-06T04:00:00.000Z",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 1,
+        "solution": false
+      },
+      {
+        "id": "journal:b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "attemptId": "b6dcf36d-b233-4dd0-aa71-16c258f1c932",
+        "questId": "q03",
+        "date": "2026-10-06T04:00:00.000Z",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false
+      },
+      {
+        "id": "journal:fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "attemptId": "fa3448d2-98ed-4d98-a12d-9f8fb38eea5f",
+        "questId": "q04",
+        "date": "2026-10-06T04:00:00.000Z",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false
+      },
+      {
+        "id": "journal:e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "attemptId": "e2a035ae-91ea-4d17-a4fc-c3ad956ebd3d",
+        "questId": "boss01",
+        "date": "2026-10-06T04:00:00.000Z",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false
+      },
+      {
+        "id": "journal:f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "attemptId": "f9daae03-b5f6-4195-bbeb-bd9a11a705ff",
+        "questId": "review01",
+        "date": "2026-10-16T04:00:00.000Z",
+        "explanation": "The function receives an input, checks the rule, then returns the output.",
+        "reflection": "I compared expected and actual behavior, changed one instruction, and checked again.",
+        "bug": "I reproduced the mismatch with a boundary input before changing the responsible line.",
+        "nextStep": "Try a different requirement without consulting the worked answer.",
+        "hints": 0,
+        "solution": false
+      }
+    ]
+  }
+}

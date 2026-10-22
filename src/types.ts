@@ -1,0 +1,117 @@
+export type Code = { html: string; css: string; js: string };
+export type Check = {
+  id: string;
+  label: string;
+  kind: "text" | "css" | "click" | "function";
+  selector?: string;
+  expected?: string;
+  property?: string;
+  initial?: string;
+  fn?: string;
+  args?: (number | string | boolean | null)[];
+  value?: number;
+};
+export type Result = {
+  id: string;
+  label: string;
+  passed: boolean;
+  detail: string;
+};
+export type Quest = {
+  id: string;
+  version: number;
+  title: string;
+  week: number;
+  kind: "core" | "optional" | "boss" | "review" | "variation";
+  skills: string[];
+  prerequisites: string[];
+  gate?: string;
+  fresh: boolean;
+  objective: string;
+  lesson: string;
+  example: string;
+  prediction: string;
+  predictionAnswer: string;
+  exercise: string;
+  starter: Code;
+  solution: Code;
+  hints: string[];
+  checks: Check[];
+  reflection: string;
+  changedRequirement?: string;
+  bug?: string;
+};
+export type Attempt = {
+  id: string;
+  questId: string;
+  contentVersion: number;
+  code: Code;
+  prediction: string;
+  reflection: string;
+  bug: string;
+  nextStep: string;
+  explanation: string;
+  hints: number;
+  solution: boolean;
+  checks: Result[];
+  checkedCode: string;
+  rubric: boolean[];
+  assessment: "self" | "coach";
+  reviewerNotes: string;
+  updatedAt: string;
+  completedAt?: string;
+  archived: boolean;
+};
+export type Evidence = {
+  id: string;
+  skillId: string;
+  questId: string;
+  attemptId: string;
+  level: "Guided" | "With hints" | "Independent" | "Retained";
+  source: "practice" | "self" | "coach";
+  date: string;
+  notes: string;
+};
+export type Award = {
+  id: string;
+  questId: string;
+  attemptId: string;
+  amount: number;
+  date: string;
+};
+export type Review = {
+  id: string;
+  skillId: string;
+  due: string;
+  phase: 7 | 30 | 60;
+  gap: string;
+  completedQuestIds: string[];
+};
+export type Journal = {
+  id: string;
+  attemptId: string;
+  questId: string;
+  date: string;
+  explanation: string;
+  reflection: string;
+  bug: string;
+  nextStep: string;
+  hints: number;
+  solution: boolean;
+};
+export type Progress = {
+  schemaVersion: 1;
+  settings: {
+    onboarded: boolean;
+    coreTarget: 5;
+    optionalTarget: 2;
+    reviewDays: { first: number; second: number };
+    seasonStart: string;
+  };
+  packs: Record<string, number>;
+  attempts: Attempt[];
+  evidence: Evidence[];
+  awards: Award[];
+  reviews: Review[];
+  journal: Journal[];
+};
